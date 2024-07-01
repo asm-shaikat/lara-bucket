@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BucketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',function (){return view('home');});
+Route::resource('bucket',BucketController::class);
+Route::get('images/{filename}', [ImageController::class, 'show'])->name('images.show');
